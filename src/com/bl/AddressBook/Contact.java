@@ -15,7 +15,7 @@ public class Contact {
 	ArrayList<Contact> addressbook = new ArrayList<>();
 	public void createContacts() {
 		String[][] addressbooks = new String[10][8];
-
+		
 		addressbooks[0][0] = "First Name";
 		addressbooks[0][1] = "Last Name";
 		addressbooks[0][2] = "Address";
@@ -131,9 +131,10 @@ public class Contact {
 		System.out.print("\nChoose your option: ");
 
 		int option = input.nextInt(3);
-		int option1 = 1;
-
-		while (option1 == 1) {
+		int option1 = 2;
+		switch(option1) {
+		//while (option1 == 1) {
+		case 1:
 			System.out.print("\nPlease enter your First Name : ");
 			String firstName = input.next();
 			System.out.print("\nPlease enter your Last Name : ");
@@ -150,12 +151,15 @@ public class Contact {
         	String phoneNumber = input.next();
         	System.out.print("\nPlease enter your Email : ");
         	String email = input.next();
-        	System.out.println("Success!");
+        	
 			option1++;
-		}
 		
-		
-		 
+		System.out.println("Edited Contact Details : " + firstName + " " + lastName + " " + address + " " + city + " "+ state + " " + zip + " " + phoneNumber + " " + email);
+		case 2:
+			System.out.print("\nPlease enter your First Name to delete : ");
+			 firstName = input.next();
+			 System.out.println("Your contact is deleted!");
+		} 
 	}
 	
 	public void display() {
@@ -167,6 +171,7 @@ public class Contact {
 	public Contact read() {
 		
 		Contact contact = new Contact();
+		System.out.println("To Create contact, Enter the Details:");
 		Scanner add = new Scanner(System.in);
 		System.out.println("Enter First Name : ");
 		firstName = add.next();
