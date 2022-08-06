@@ -1,8 +1,9 @@
 package com.bl.AddressBook;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Contact extends AddressBookMain {
+public class Contact {
 	static String firstName;
 	static String lastName;
 	static String address;
@@ -11,7 +12,7 @@ public class Contact extends AddressBookMain {
 	static int zip;
 	static Long phoneNumber;
 	static String email;
-
+	ArrayList<Contact> addressbook = new ArrayList<>();
 	public void createContacts() {
 		String[][] addressbooks = new String[10][8];
 
@@ -53,40 +54,9 @@ public class Contact extends AddressBookMain {
 	}
 
 	public void addNewContact() {
-		Contact contact = new Contact();
-		Scanner add = new Scanner(System.in);
-		System.out.println("Enter First Name : ");
-		firstName = add.next();
-		contact.setFirstName(firstName);
-		System.out.println("Enter Last Name : ");
-		lastName = add.next();
-		contact.setLastName(lastName);
-		System.out.println("Enter Address : ");
-		address = add.next();
-		contact.setAddress(address);
-		System.out.println("Enter City : ");
-		city = add.next();
-		contact.setCity(city);
-		System.out.println("Enter State : ");
-		state = add.next();
-		contact.setState(state);
-		System.out.println("Enter Zip : ");
-		zip = add.nextInt();
-		contact.setZip(zip);
-		System.out.println("Enter Phone Number : ");
-		phoneNumber = add.nextLong();
-		contact.setPhoneNumber(phoneNumber);
-		System.out.println("Enter Email : ");
-		email = add.next();
-		contact.setEmail(email);
-
-		System.out.println("New Contact Details : ");
-
-		System.out.println(firstName + " " + lastName + "\t" + address + ", " + "\n\t" + city + "\n\t" + state + ", "
-				+ zip + "  Ph.No: " + phoneNumber + "\n\t" + email);
-
-		addressbook.add(contact);
-
+		
+		addressbook.add(read());
+		
 	}
 
 	public static String getFirstName() {
@@ -163,7 +133,7 @@ public class Contact extends AddressBookMain {
 		int option = input.nextInt(3);
 		int option1 = 1;
 
-		while (option1 <= 1) {
+		while (option1 == 1) {
 			System.out.print("\nPlease enter your First Name : ");
 			String firstName = input.next();
 			System.out.print("\nPlease enter your Last Name : ");
@@ -183,6 +153,54 @@ public class Contact extends AddressBookMain {
         	System.out.println("Success!");
 			option1++;
 		}
+		
+		
+		 
 	}
+	
+	public void display() {
+		for(Contact contact:addressbook) {
+			System.out.println(contact.getFirstName() + " " + contact.getLastName()+ " " + contact.getAddress() + " " + contact.getCity() + " " + contact.getState() + " " + contact.getZip() + " "+ contact.getPhoneNumber() + " " + contact.getEmail());
+		}
+	}
+
+	public Contact read() {
+		
+		Contact contact = new Contact();
+		Scanner add = new Scanner(System.in);
+		System.out.println("Enter First Name : ");
+		firstName = add.next();
+		contact.setFirstName(firstName);
+		System.out.println("Enter Last Name : ");
+		lastName = add.next();
+		contact.setLastName(lastName);
+		System.out.println("Enter Address : ");
+		address = add.next();
+		contact.setAddress(address);
+		System.out.println("Enter City : ");
+		city = add.next();
+		contact.setCity(city);
+		System.out.println("Enter State : ");
+		state = add.next();
+		contact.setState(state);
+		System.out.println("Enter Zip : ");
+		zip = add.nextInt();
+		contact.setZip(zip);
+		System.out.println("Enter Phone Number : ");
+		phoneNumber = add.nextLong();
+		contact.setPhoneNumber(phoneNumber);
+		System.out.println("Enter Email : ");
+		email = add.next();
+		contact.setEmail(email);
+
+		System.out.println("New Contact Details : ");
+
+		System.out.println(firstName + " " + lastName + "\t" + address + ", " + "\n\t" + city + "\n\t" + state + ", "
+				+ zip + "  Ph.No: " + phoneNumber + "\n\t" + email);
+		return contact;
+		
+	}
+	
+	
 
 }
