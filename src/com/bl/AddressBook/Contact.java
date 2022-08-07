@@ -12,7 +12,7 @@ public class Contact {
 	static int zip;
 	static Long phoneNumber;
 	static String email;
-	ArrayList<Contact> addressbook = new ArrayList<>();
+	static ArrayList<Contact> addressbook = new ArrayList<>();
 	public void createContacts() {
 		String[][] addressbooks = new String[10][8];
 		
@@ -168,7 +168,7 @@ public class Contact {
 		}
 	}
 
-	public Contact read() {
+	public static Contact read() {
 		
 		Contact contact = new Contact();
 		System.out.println("To Create contact, Enter the Details:");
@@ -203,6 +203,11 @@ public class Contact {
 		System.out.println(firstName + " " + lastName + "\t" + address + ", " + "\n\t" + city + "\n\t" + state + ", "
 				+ zip + "  Ph.No: " + phoneNumber + "\n\t" + email);
 		return contact;
+		
+	}
+
+	public void addPerson() {
+		// TODO Auto-generated method stub
 		
 	}
 	

@@ -9,10 +9,13 @@ public class AddressBookMain {
 
 		System.out.println("Welcome to Address Book Program");
 		Contact contact = new Contact();
-		contact.addNewContact();
-		contact.createContacts();
-		contact.editContact();
-		contact.display();
+		Collection obj = new Collection();
+		//contact.addNewContact();
+		//contact.createContacts();
+		//contact.editContact();
+		//contact.display();
+		//obj.addPerson();
+		obj.addMultipleContacts();
 		
 		
 	}
