@@ -12,7 +12,7 @@ public class Collection extends Contact {
 	public void addPerson() {
 //		AddressBookMain obj = new AddressBookMain();
 //
-		addressbook.add(read());
+		//addressbook.add(read());
 
 	}
 
@@ -48,24 +48,27 @@ public class Collection extends Contact {
 	
 	public void addMultipleAddressBook() {
 		Contact contact = new Contact();
-		//contact.read();
-
         // Initializing a Dictionary
         Dictionary geek = new Hashtable();
  
-        // put() method
-        geek.put(contact.read(), geek);
-        geek.put("123", "AddressBook1");
-        geek.put("456", "AddressBook2");
+        
+        //geek.put(contact.read(), geek);
+        geek.put(contact.read(), "AddressBook1");
+        geek.put(contact.read(), "AddressBook2");
  
         // elements() method :
         for (Enumeration i = geek.elements(); i.hasMoreElements();)
         {
         	addressbook.add(read());
             System.out.println("Address Book Name : " + i.nextElement());
-            addressbook.add(read());
-            System.out.println("Address Book 2 : " + i.nextElement());
-        }
-       
+            }
+        
+            for (Enumeration i1 = geek.elements(); i1.hasMoreElements();)
+            {
+            	addressbook.add(read());
+                System.out.println("Address Book Name : " + i1.nextElement());
+           
+        
+        }   
 	}
 }
