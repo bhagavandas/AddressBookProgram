@@ -206,10 +206,6 @@ public class Contact {
 		
 	}
 
-	public void addPerson() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	
 

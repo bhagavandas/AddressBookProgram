@@ -16,6 +16,7 @@ public class AddressBookMain {
 		//contact.display();
 		//obj.addPerson();
 		obj.addMultipleContacts();
+		obj.addMultipleAddressBook();
 		
 		
 	}
