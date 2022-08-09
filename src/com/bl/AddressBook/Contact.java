@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Contact {
-	static String firstName;
+	
+	public static String firstName;
 	static String lastName;
 	static String address;
 	static String city;
@@ -12,8 +13,11 @@ public class Contact {
 	static int zip;
 	static Long phoneNumber;
 	static String email;
+	
 	static ArrayList<Contact> addressbook = new ArrayList<>();
+	
 	public void createContacts() {
+		
 		String[][] addressbooks = new String[10][8];
 		
 		addressbooks[0][0] = "First Name";
@@ -123,7 +127,7 @@ public class Contact {
 		Contact.email = email;
 	}
 
-	public void editContact() {
+	public static void editContact() {
 		Scanner input = new Scanner(System.in);
 		System.out.print("\n");
 		System.out.print("\n1 - Edit Contact \n2 - Delete Contact ");
@@ -131,10 +135,11 @@ public class Contact {
 		System.out.print("\nChoose your option: ");
 
 		int option = input.nextInt(3);
-		int option1 = 2;
+		int option1 = option;
 		switch(option1) {
 		//while (option1 == 1) {
 		case 1:
+			System.out.println("Enter the details to edit contact: ");
 			System.out.print("\nPlease enter your First Name : ");
 			String firstName = input.next();
 			System.out.print("\nPlease enter your Last Name : ");
@@ -158,7 +163,13 @@ public class Contact {
 		case 2:
 			System.out.print("\nPlease enter your First Name to delete : ");
 			 firstName = input.next();
+			if( firstName == firstName) {
 			 System.out.println("Your contact is deleted!");
+			}
+			else {
+				System.out.println("User not found!!!");
+			}
+			break;
 		} 
 	}
 	
