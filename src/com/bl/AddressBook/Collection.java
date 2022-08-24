@@ -54,29 +54,26 @@ public class Collection extends Contact {
 	public void addMultipleAddressBook() {
 		Contact contact = new Contact();
         // Initializing a Dictionary
-        Dictionary geek = new Hashtable();
+        Dictionary dictionary = new Hashtable();
  
-        
-        //geek.put(contact.read(), geek);
-       
-        geek.put(contact.read(), "AddressBook1");
-        geek.put(contact.read(), "AddressBook2");
+        dictionary.put(contact.read(), "AddressBook1");
+        dictionary.put(contact.read(), "AddressBook2");
         
  
         // elements() method :
-        for (Enumeration i = geek.elements(); i.hasMoreElements();)
+        for (Enumeration i = dictionary.elements(); i.hasMoreElements();)
         {
         	//addressbook.add(read());
             System.out.println("Address Book Name : " + i.nextElement());
             }
         
-            for (Enumeration i1 = geek.elements(); i1.hasMoreElements();)
+            for (Enumeration i1 = dictionary.elements(); i1.hasMoreElements();)
             {
             	addressbook.add(read());
                 System.out.println("Address Book Name : " + i1.nextElement());
            
         
         }   
-            System.out.println("geek : " + geek);
+            System.out.println("Dictionary : " + dictionary);
 	}
 }

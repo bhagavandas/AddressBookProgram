@@ -5,20 +5,22 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import com.bl.AddressBook.Contact;
+
 public class AddressBook {
 
 	private static final Scanner SC = new Scanner(System.in);
 	public static Map<String, ArrayList<Contact>> map = new HashMap<>();
 
-		public static void addressBook() {
-			
-			Contact contact = new Contact();
-			
+	public static void addressBook() {
+
+		Contact contact = new Contact();
+
 		int choose = 0;
 
 		do {
 			Contact add;
-			System.out.println("1.addAddressBook \n 2.display\n3.exit");
+			System.out.println("1.addAddressBook \n 2.display\n 3.exit");
 
 			choose = SC.nextInt();
 			switch (choose) {
@@ -31,7 +33,7 @@ public class AddressBook {
 					ArrayList<Contact> contactList = new ArrayList<>();
 					int choice = 0;
 					do {
-						System.out.println("1.add\n2.display\n3.exit\n 4.update\n5.delete contact");
+						System.out.println("1.add\n 2.display\n 3.exit\n 4.update\n 5.delete contact");
 						System.out.println("Enter choice");
 						choice = SC.nextInt();
 						switch (choice) {
@@ -52,7 +54,7 @@ public class AddressBook {
 							break;
 
 						case 4:
-							System.out.println("Enter name which you want to replace: ");
+							System.out.println("Enter name which you want to edit: ");
 							String nameReplace = SC.next();
 							for (int i = 0; i < contactList.size(); i++) {
 								System.out.println(contactList.get(i));
@@ -88,7 +90,7 @@ public class AddressBook {
 								if (nameDelete.equals(editContact.getFirstName())) {
 									contactList.remove(i);
 								}
-								System.out.println("Successfully deleted!!!");
+								System.out.println();
 							}
 							break;
 
