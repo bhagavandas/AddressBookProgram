@@ -14,13 +14,13 @@ public class AddressBookMain {
 		// contact.display();
 		// obj.addPerson();
 		// obj.addMultipleContacts();
-		// obj.addMultipleAddressBook();
+		 obj.addMultipleAddressBook();
 
-		AddressBook addressbook = new AddressBook();
+		Address addressbook = new Address();
 		//addressbook.addressBook();
-		
-		Person person = new Person();
-		person.CheckPersonName();
-		person.equals(obj);
+//		
+//		Person person = new Person();
+//		person.CheckPersonName();
+//		person.equals(obj);
 	}
 }

@@ -47,5 +47,14 @@ public class Person {
 		// TODO Auto-generated method stub
 		return super.equals(obj);
 	}
-
+	
+	public static void main(String[] args) {
+		Person person = new Person();
+		person.CheckPersonName();
+		Address address = new Address();
+		//address.addressBook();
+		address.addEntry();
+		Address.search();
+		
+	}
 }
