@@ -53,8 +53,9 @@ public class Person {
 		person.CheckPersonName();
 		Address address = new Address();
 		//address.addressBook();
-		address.addEntry();
-		Address.search();
+		//address.addEntry();
+		//address.search();
+		address.maintainDictionary();
 		
 	}
 }

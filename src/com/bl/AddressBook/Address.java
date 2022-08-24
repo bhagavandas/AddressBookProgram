@@ -1,7 +1,9 @@
 package com.bl.AddressBook;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Scanner;
@@ -10,8 +12,8 @@ import java.util.Set;
 import com.bl.AddressBook.Contact;
 
 public class Address {
-	private static String first;
-	private static String last;
+	private static String firstName;
+	private static String lastName;
 	private static String choice;
 	private static String search;
 	
@@ -137,10 +139,11 @@ public class Address {
 		} while (choose != 3);
 	}
 
+	//search for person in addressbook
 	public static int search() {
 	 
 		System.out.println("Search Menu: 1.Search First Name\n 2.Search Last\r\n"
-				+ "			      Name\n 3.Search City\n 4.Search State\n 5.Search Zip Code\n 6.Search Phone Number\n 7.Search Email");
+				+ "Name\n 3.Search City\n 4.Search State\n 5.Search Zip Code\n 6.Search Phone Number\n 7.Search Email");
 	      
 		
 	     System.out.print("Please Enter Field to Search: ");
@@ -152,10 +155,11 @@ public class Address {
 	    switch (choice)
 	    {
 	      case "1":
-	    	  System.out.println(first + addressbook);
+	    	  if(addressbook.contains(firstName))
+	    	  System.out.println(firstName + addressbook);
 	        break;
 	      case "2":
-	    	  System.out.println(last + addressbook);
+	    	  System.out.println(lastName + addressbook);
 	        break;
 	      case "3":
 	    	  System.out.println(city + addressbook);
@@ -169,22 +173,23 @@ public class Address {
 	      case "6":
 	    	  System.out.println(phoneNum + addressbook);
 	      default:
-	    	  System.out.println(addressbook);
+	    	  //System.out.println(addressbook);
 	        break;
 	    }
 	    return -2;
 	  }
 
+	//enter the person details
 	public void addEntry() {
 		
 				
 		System.out.print("Please Enter First Name: ");
-		first = input.nextLine();
-		addressbook.add(first);
+		firstName = input.nextLine();
+		addressbook.add(firstName);
 		
 		System.out.print("Please Enter Last Name: ");
-		last = input.nextLine();
-		addressbook.add(last);
+		lastName = input.nextLine();
+		addressbook.add(lastName);
 		
 		System.out.print("Please Enter City: ");
 		city = input.nextLine();
@@ -208,5 +213,26 @@ public class Address {
 		
 		
 	}
+	// maintaining Dictionary to store the person and states
+	public void maintainDictionary() {
+		Dictionary phoneBook = new Hashtable();
+
+        // put() method
+        phoneBook.put("Das", "Karnataka");
+        phoneBook.put("Michael", "Mumbai");
+        phoneBook.put("Darwin", "Kolkata");
+        phoneBook.put("Ricky", "Telangana");
+
+        //print out Hashtable out
+        System.out.println(phoneBook);
+        System.out.println("Enter name to search from given addressbook: ");
+        String name = input.next();
+        
+        if(((Hashtable) phoneBook).containsKey(name)) {
+        System.out.println("He is from " + phoneBook.get(name));
+        }
+      
+    }
+	
 
 }
