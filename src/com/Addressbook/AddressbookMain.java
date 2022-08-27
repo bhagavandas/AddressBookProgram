@@ -1,6 +1,8 @@
 package com.Addressbook;
 
+import java.util.LinkedHashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class AddressbookMain {
 	
@@ -35,41 +37,59 @@ public class AddressbookMain {
 		return new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
 
 	}
-
+/* searching the person by name and state using switch case*/
 	public static void main(String[] args) {
 
 		System.out.println(" Welcome to Address Book Program");
-
+		
+		readContactInfo();
+		Set<Contact> addressbook = new LinkedHashSet<>();
+		//adding the user details in set of addressbook
+		addressbook.add(readContactInfo());
+		//printing the addressbook 
+		System.out.println(addressbook);
+		MultipleAddressSerice addressRegisterSerice = new MultipleAddressSerice();
+		addressRegisterSerice.countPersons("das");
+		addressRegisterSerice.searchPersonAll("Das", "Ongole");
+		
 		Scanner scan = new Scanner(System.in);
-		String ch;
+		String option;
 
-		AddresbookService obj = new AddresbookService();
-		AddressRegisterSerice adObj = new AddressRegisterSerice();
+		
 
 		while (true) {
 			System.out.println(
-					" 1. Search by City/State\n 2. Exit ");
+					" 1. Search a person by City/State\n 2. Exit ");
 			System.out.print(" Please enter your choice: ");
 
-			ch = scan.next();
+			option = scan.next();
 
-			switch (ch) {
+			switch (option) {
 			
 			case "1":
 				System.out.print(" Please enter the name of the person: ");
 				String name = scan.next();
+				
 				System.out.print(" Do you want to search by city or state: ");
 				String choice = scan.next();
-				adObj.searchPersonAll(name, choice);
+				if(addressbook.contains(name)) {
+					System.out.println(addressbook);
+				}
+				
 				break;
 			case "2": 
-				System.out.println(" Good bye!! ");
+				System.out.println(" Thank you ");
 				scan.close();
 				return;
 			default:
 				System.out.println(" Please enter a valid input");
 			}
 		}
+		
+		
+
 	}
+	
+	
 
 }

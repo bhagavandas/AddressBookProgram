@@ -1,61 +1,63 @@
 package com.bl.AddressBook;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Contact {
 	
-	public static String firstName;
-	static String lastName;
-	static String address;
-	static String city;
-	static String state;
-	static int zip;
-	static Long phoneNumber;
-	static String email;
+	private String firstName;
+	private String lastName;
+	private String address;
+	private String city;
+	private String state;
+	private int zip;
+	private Long phoneNumber;
+	private String email;
 	
-	static ArrayList<Contact> addressbook = new ArrayList<>();
+	protected ArrayList<Contact> addressbook = new ArrayList<>();
 	
-	public void createContacts() {
-		
-		String[][] addressbooks = new String[10][8];
-		
-		addressbooks[0][0] = "First Name";
-		addressbooks[0][1] = "Last Name";
-		addressbooks[0][2] = "Address";
-		addressbooks[0][3] = "City";
-		addressbooks[0][4] = "State";
-		addressbooks[0][5] = "Zip";
-		addressbooks[0][6] = "Phone Number";
-		addressbooks[0][7] = "Email";
-
-		addressbooks[1][0] = "Bravo";
-		addressbooks[1][1] = "K";
-		addressbooks[1][2] = "ECIL,Hyderabad";
-		addressbooks[1][3] = "Hyderabad";
-		addressbooks[1][4] = "Telangana";
-		addressbooks[1][5] = "500001";
-		addressbooks[1][6] = "5846985485";
-		addressbooks[1][7] = "bl@gmail.com";
-
-		addressbooks[2][0] = "David";
-		addressbooks[2][1] = "Hussey";
-		addressbooks[2][2] = "Ongole, Andhra Pradesh";
-		addressbooks[2][3] = "Ongole";
-		addressbooks[2][4] = "AP";
-		addressbooks[2][5] = "523001";
-		addressbooks[2][6] = "9584258466";
-		addressbooks[2][7] = "hussey@yahoo.com";
-
-		System.out.println(addressbooks[1][0] + " " + addressbooks[1][1] + "\t" + addressbooks[1][2] + ", " + "\n\t"
-				+ addressbooks[1][3] + "\n\t" + addressbooks[1][4] + ", " + addressbooks[1][5] + "  Ph.No: "
-				+ addressbooks[1][6] + "\n\t" + addressbooks[1][7]);
-
-		System.out.println(addressbooks[2][0] + " " + addressbooks[2][1] + "\t" + addressbooks[2][2] + ", " + "\n\t"
-				+ addressbooks[2][3] + "\n\t" + addressbooks[2][4] + ", " + addressbooks[2][5] + "  Ph.No: "
-				+ addressbooks[2][6] + "\n\t" + addressbooks[2][7]);
-
-	}
+	
+//	public void createContacts() {
+//		
+//		String[][] addressbooks = new String[10][8];
+//		
+//		addressbooks[0][0] = "First Name";
+//		addressbooks[0][1] = "Last Name";
+//		addressbooks[0][2] = "Address";
+//		addressbooks[0][3] = "City";
+//		addressbooks[0][4] = "State";
+//		addressbooks[0][5] = "Zip";
+//		addressbooks[0][6] = "Phone Number";
+//		addressbooks[0][7] = "Email";
+//
+//		addressbooks[1][0] = "Bravo";
+//		addressbooks[1][1] = "K";
+//		addressbooks[1][2] = "ECIL,Hyderabad";
+//		addressbooks[1][3] = "Hyderabad";
+//		addressbooks[1][4] = "Telangana";
+//		addressbooks[1][5] = "500001";
+//		addressbooks[1][6] = "5846985485";
+//		addressbooks[1][7] = "bl@gmail.com";
+//
+//		addressbooks[2][0] = "David";
+//		addressbooks[2][1] = "Hussey";
+//		addressbooks[2][2] = "Ongole, Andhra Pradesh";
+//		addressbooks[2][3] = "Ongole";
+//		addressbooks[2][4] = "AP";
+//		addressbooks[2][5] = "523001";
+//		addressbooks[2][6] = "9584258466";
+//		addressbooks[2][7] = "hussey@yahoo.com";
+//
+//		System.out.println(addressbooks[1][0] + " " + addressbooks[1][1] + "\t" + addressbooks[1][2] + ", " + "\n\t"
+//				+ addressbooks[1][3] + "\n\t" + addressbooks[1][4] + ", " + addressbooks[1][5] + "  Ph.No: "
+//				+ addressbooks[1][6] + "\n\t" + addressbooks[1][7]);
+//
+//		System.out.println(addressbooks[2][0] + " " + addressbooks[2][1] + "\t" + addressbooks[2][2] + ", " + "\n\t"
+//				+ addressbooks[2][3] + "\n\t" + addressbooks[2][4] + ", " + addressbooks[2][5] + "  Ph.No: "
+//				+ addressbooks[2][6] + "\n\t" + addressbooks[2][7]);
+//
+//	}
 
 	public void addNewContact() {
 		
@@ -63,68 +65,68 @@ public class Contact {
 		
 	}
 
-	public static String getFirstName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
-	public static void setFirstName(String firstName) {
-		Contact.firstName = firstName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public static String getLastName() {
+	public String getLastName() {
 		return lastName;
 	}
 
-	public static void setLastName(String lastName) {
-		Contact.lastName = lastName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public static String getAddress() {
+	public String getAddress() {
 		return address;
 	}
 
-	public static void setAddress(String address) {
-		Contact.address = address;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public static String getCity() {
+	public String getCity() {
 		return city;
 	}
 
-	public static void setCity(String city) {
-		Contact.city = city;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
-	public static String getState() {
+	public String getState() {
 		return state;
 	}
 
-	public static void setState(String state) {
-		Contact.state = state;
+	public void setState(String state) {
+		this.state = state;
 	}
 
-	public static int getZip() {
+	public int getZip() {
 		return zip;
 	}
 
-	public static void setZip(int zip) {
-		Contact.zip = zip;
+	public void setZip(int zip) {
+		this.zip = zip;
 	}
 
-	public static Long getPhoneNumber() {
+	public Long getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public static void setPhoneNumber(Long phoneNumber) {
-		Contact.phoneNumber = phoneNumber;
+	public void setPhoneNumber(Long phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public static String getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
-	public static void setEmail(String email) {
-		Contact.email = email;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public static void editContact() {
@@ -179,7 +181,7 @@ public class Contact {
 		}
 	}
 
-	public static Contact read() {
+	public Contact read() {
 		
 		Contact contact = new Contact();
 		System.out.println("To Create contact, Enter the Details:");
@@ -216,6 +218,14 @@ public class Contact {
 		return contact;
 		
 	}
+
+	@Override
+	public String toString() {
+		return "firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city=" + city
+				+ ", state=" + state + ", zip=" + zip + ", phoneNumber=" + phoneNumber + ", email=" + email;
+	}
+
+	
 
 	
 	

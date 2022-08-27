@@ -9,20 +9,20 @@ import com.bl.AddressBook.Contact;
 
 public class AddresbookService {
 	
-	Scanner scan = new Scanner(System.in);
+	static Scanner scan = new Scanner(System.in);
 
 	public AddresbookService() {
 		super();
 		
 	}
-
+// adding contacts to the addressbook
 	public static void addContact(com.Addressbook.Contact contact) {
 
 		MultipleAddressbook multipleAddressbook = new MultipleAddressbook();
 
-			Addressbook adBook = findAddressBook();
+			Addressbook address_Book = findAddressBook();
 
-			if (adBook == null) {
+			if (address_Book == null) {
 				return;
 			}
 
@@ -38,37 +38,39 @@ public class AddresbookService {
 				statePersonMap.put(contact.getState(), new ArrayList<com.Addressbook.Contact>());
 			statePersonMap.get(contact.getState()).add(contact);
 
-			HashSet<Contact> contacts = adBook.getContacts();
+			HashSet<Contact> contacts = address_Book.getContacts();
 
-			Contact newContact = contact;
-			if (!contacts.add(newContact))
-				System.out.println(" A contact of this name already exists!");
+			Contact contact1 = new Contact();
+			if (!contacts.add(contact1))
+				System.out.println(" Contact of this name already exists!");
 
-			adBook.setContacts(contacts);
+			address_Book.setContacts(contacts);
 
-			System.out.println(newContact);
+			System.out.println(contact1);
 		}
 
 		
-
+// printing the contacts in addressbook
 	public void printContacts() {
 
 		HashSet<Addressbook> temp = MultipleAddressbook.getAddressBookList();
 
 		for (Addressbook addressBook : temp) {
-			System.out.println(" ******** " + addressBook.getName() + " ********");
+			System.out.println("  " + addressBook.getName() + " ");
 			for (Contact contact : addressBook.getContacts()) {
 				System.out.println(contact);
 			}
 		}
 	}
 
-	private Contact findContact(Addressbook adBook) {
+	
+	//finding the contacts by their details
+	private Contact findContact(Addressbook book) {
 
 		System.out.print(" Please enter the name of the contact: ");
 		String name = scan.next();
 
-		HashSet<Contact> contacts = adBook.getContacts();
+		HashSet<Contact> contacts = book.getContacts();
 		int count = 0;
 		Contact temp = null;
 
@@ -94,11 +96,13 @@ public class AddresbookService {
 		return null;
 	}
 
+	
+	//finding addressbook
 	private static Addressbook findAddressBook() {
 
-		HashSet<Addressbook> temp = MultipleAddressbook.getAddressBookList();
+		HashSet<Addressbook> addressbook = MultipleAddressbook.getAddressBookList();
 
-		if (temp.size() == 0) {
+		if (addressbook.size() == 0) {
 			System.out.println(" Please create an address book first!");
 			return null;
 		}
@@ -106,7 +110,7 @@ public class AddresbookService {
 		System.out.print(" Please enter the name of the address book: ");
 		String adBookName = scan.next();
 
-		for (Addressbook addressBook : temp) {
+		for (Addressbook addressBook : addressbook) {
 			if (addressBook.getName().equals(adBookName)) {
 				return addressBook;
 			}

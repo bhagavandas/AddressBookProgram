@@ -7,7 +7,7 @@ import com.bl.AddressBook.Contact;
 
 public class Addressbook {
 	
-	private HashSet<Contact> contacts = new HashSet<>();
+	 static HashSet<Contact> contacts = new HashSet<>();
 	private String name;
 
 	@Override
@@ -47,7 +47,6 @@ public class Addressbook {
 		super();
 		this.name = name;
 	}
-	
 	
 	
 	

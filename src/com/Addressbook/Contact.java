@@ -93,7 +93,7 @@ public class Contact {
 
 	@Override
 	public String toString() {
-		System.out.println("\n ==== " + firstName + " " + lastName + " ====");
+		System.out.println("\n  " + firstName + " " + lastName + " Details");
 		System.out.println(" Address: " + this.address);
 		System.out.println(" City: " + this.city);
 		System.out.println(" State: " + this.state);
@@ -105,6 +105,7 @@ public class Contact {
 
 	public void setContacts(String firstName, String lastName, String address, String city, String state, int zip,
 			int phoneNumber, String email) {
+		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
