@@ -40,6 +40,9 @@ public class AddressbookMain {
 /* searching the person by name and state using switch case*/
 	public static void main(String[] args) {
 
+		AddresbookService addresbookService = new AddresbookService();
+		addresbookService.printContacts();
+
 		System.out.println(" Welcome to Address Book Program");
 		
 		readContactInfo();
@@ -87,7 +90,6 @@ public class AddressbookMain {
 		}
 		
 		
-
 	}
 	
 	
