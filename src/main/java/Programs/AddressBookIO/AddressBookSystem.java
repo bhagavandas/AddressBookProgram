@@ -60,7 +60,7 @@ public class AddressBookSystem {
 			System.out.println(
 					"\n1. Add new contact\n2. Edit existing details\n3. Delete existing contact\n4. Search"
 							+ "\n5. View Person\n6. Count of People\n7. Sort by first name\n8. Sort by city name\n9. Add contact to File"
-							+ "\n10. Read contact data from File\n11. Add contact to CSV File\n12. Read contact data from CSV File\n13. Exit");
+							+ "\n10. Read contact data from File\n11. Add contact to CSV File\n12. Read contact data from CSV File\n13. Add Contact to JSON File\n14. Read Data from JSON File\n15. Exit");
 			System.out.println("Enter choice: ");
 			int choice = sc.nextInt();
 			switch (choice) {
@@ -124,23 +124,30 @@ public class AddressBookSystem {
 					break;
 				}
 			case 9:
-				addressBook.addDataToFile("Das", "K", "Ong", "Ong", "AP", 985858458, 525215, "Das@gmail.com", "Book");
+				addressBook.addDataToCSVFile(addressBookName);
 				System.out.println("Details added to text file");
 				break;
 			case 10:
 				addressBook.readDataFromFile();
 				break;
 			case 11:
-				addressBook.addDataToCSVFile("Raj", "K", "Hyd", "ECIL", "TS", 985858458, 525215, "Das@gmail.com", "Book1");
+				addressBook.addDataToCSVFile(addressBookName);
 				System.out.println("Data added to CSV File");
 				break;
 			case 12:
 				addressBook.readDataFromCSVFile();
 				break;
 			case 13:
+				addressBook.addContact(addressBookName);
+				System.out.println("Contact added to JSON File");
+				break;
+			case 14:
+				addressBook.readDataFromJSONFile();
+				break;
+			case 15:
 				obj.addAddressBook();
 				count = 0;
-				break;
+				//break;
 			default:
 				System.out.println("Enter a valid choice");
 				break;
@@ -151,10 +158,10 @@ public class AddressBookSystem {
 
 	public static void main(String[] args) throws IOException {
 		
-		AddressBook addressBook = new AddressBook();
-		addressBook.addDataToFile("Das", "Das", "K", "Ong", "Ong", 985482458, 525468, "AP", "das@gmail.com");
+		//AddressBook addressBook = new AddressBook();
+		//addressBook.addDataToFile("Das", "Das", "K", "Ong", "Ong", 985482458, 525468, "AP", "das@gmail.com");
 		personData();
-		addressBook.addDataToCSVFile("Raj", "K", "Hyd", "ECIL", "TS", 985858458, 525215, "Das@gmail.com", "Book1");
+		//addressBook.addDataToCSVFile("Raj", "K", "Hyd", "ECIL", "TS", 985858458, 525215, "Das@gmail.com", "Book1");
 
 	}
 }

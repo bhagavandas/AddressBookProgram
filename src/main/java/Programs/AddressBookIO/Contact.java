@@ -10,14 +10,14 @@ public class Contact {
 	public long phoneNumber;
 	public String emailId;
 
-	public Contact(String firstName, String lastName, String address, String city, String state, int zip2, long phoneNumber,
+	public Contact(String firstName, String lastName, String address, String city, String state, int zip, long phoneNumber,
 			String emailId) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
 		this.city = city;
 		this.state = state;
-		this.zip = zip2;
+		this.zip = zip;
 		this.phoneNumber = phoneNumber;
 		this.emailId = emailId;
 	}
@@ -68,7 +68,7 @@ public class Contact {
 	}
 	
 	public void setphoneNumber(long phno) {
-		this.phoneNumber = phno;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getEmailId() {
