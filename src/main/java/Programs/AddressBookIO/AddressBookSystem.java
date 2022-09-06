@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Scanner;
@@ -124,14 +125,14 @@ public class AddressBookSystem {
 					break;
 				}
 			case 9:
-				addressBook.addDataToCSVFile(addressBookName);
+				addressBook.addDataToCSVFile(addressBookName, new ArrayList() );
 				System.out.println("Details added to text file");
 				break;
 			case 10:
 				addressBook.readDataFromFile();
 				break;
 			case 11:
-				addressBook.addDataToCSVFile(addressBookName);
+				addressBook.addDataToCSVFile(addressBookName, new ArrayList());
 				System.out.println("Data added to CSV File");
 				break;
 			case 12:
@@ -141,12 +142,12 @@ public class AddressBookSystem {
 				addressBook.addContact(addressBookName);
 				System.out.println("Contact added to JSON File");
 				break;
-			case 14:
-				addressBook.readDataFromJSONFile();
-				break;
-			case 15:
-				obj.addAddressBook();
-				count = 0;
+//			case 14:
+//				addressBook.readDataFromJSONFile();
+//				break;
+//			case 15:
+//				obj.addAddressBook();
+//				count = 0;
 				//break;
 			default:
 				System.out.println("Enter a valid choice");

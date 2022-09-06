@@ -21,13 +21,15 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
 public class AddressBook {
-	// UC1
+	
 	static Scanner sc = new Scanner(System.in);
 	static List<Contact> list = new ArrayList<Contact>();
 	static Contact contact;
+	
 
-	// UC2
+	
 	public void addContact(String addressBookName) {
+		
 		System.out.println("Enter First Name: ");
 		String firstName = sc.next();
 		System.out.println("Enter Last Name: ");
@@ -55,9 +57,12 @@ public class AddressBook {
 		} else {
 			contact = new Contact(firstName, lastName, address, city, state, zip, phno, emailId);
 			list.add(contact);
+			System.out.println("ContactList: " + list);
+			
 			addDataToFile(firstName, lastName, address, city, state, phno, zip, emailId, addressBookName);
 			try {
-				addDataToCSVFile(addressBookName);
+				addDataToCSVFile(addressBookName, list);
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -230,8 +235,9 @@ public class AddressBook {
 	}
 
 	// adding data to csv file
-	public void addDataToCSVFile(String addressBookName) throws IOException {
-		
+	public void addDataToCSVFile(String addressBookName, List list1) throws IOException {
+		//list1.add(contact);
+		addContact(addressBookName);
 		System.out.println("Enter name of CSV file to write data: ");
 		String fileName = sc.next();
 		Path filePath = Paths.get("src\\AddressBook" + fileName + ".csv");// locate a file in a file system
@@ -251,7 +257,7 @@ public class AddressBook {
 //		array[3] = "Das";
 //		array[4] = "Das";
 		//data.add(array);
-		
+		System.out.println("List: " + list1);
 			for (Contact details : list) {
 				//data.add(addContact(addressBookName));
 				//data.add(details);
@@ -261,7 +267,8 @@ public class AddressBook {
 						+ "\n5. State: " + details.state + "\n6. Zip: " + details.zip + "\n7. PhoneNumber: "
 						+ details.phoneNumber + "\n8. Email: " + details.emailId + "\n" });
 			}
-			System.out.println(data);
+			
+			//System.out.println(data);
 			writer.writeAll(data);// Writes the entire list to a CSV file.
 			writer.flush();// Flushes this stream by writing any buffered output to the underlyingstream
 			writer.close();
@@ -290,34 +297,5 @@ public class AddressBook {
 		}
 	}
 	
-	public void addDataToJSONFile(String addressBookName) throws IOException {
-		System.out.println("Enter name for json written file : ");
-		String fileName = sc.nextLine();
-		Path filePath = Paths.get("src\\Addressbook"+fileName+".json");
-		Gson gson = new Gson();
-		String json = gson.toJson(list);
-		FileWriter writer = new FileWriter(String.valueOf(filePath));
-		writer.write(json);
-		writer.close();
-	}
-
-	public void readDataFromJSONFile() throws FileNotFoundException {
-		System.out.println("Enter address book name : ");
-		String fileName = sc.nextLine();
-		Path filePath = Paths.get("src\\Addressbook"+fileName+".json");
-		Gson gson = new Gson();
-		BufferedReader br = new BufferedReader(new FileReader(String.valueOf(filePath)));
-		Contact[] data = gson.fromJson(br, Contact[].class);
-		List<Contact> list = Arrays.asList(data);
-		for (Contact details : list) {
-			System.out.println("Firstname : " + details.firstName);
-			System.out.println("Lastname : " + details.lastName);
-			System.out.println("Address : " + details.address);
-			System.out.println("City : " + details.city);
-			System.out.println("State : " + details.state);
-			System.out.println("Zip : " + details.zip);
-			System.out.println("PhoneNumber : " + details.phoneNumber);
-			System.out.println("Email : " + details.emailId);
-		}
-	}
+	
 }
