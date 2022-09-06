@@ -125,7 +125,7 @@ public class AddressBookSystem {
 					break;
 				}
 			case 9:
-				addressBook.addDataToCSVFile(addressBookName, new ArrayList() );
+				addressBook.addContact(addressBookName);
 				System.out.println("Details added to text file");
 				break;
 			case 10:
@@ -142,13 +142,14 @@ public class AddressBookSystem {
 				addressBook.addContact(addressBookName);
 				System.out.println("Contact added to JSON File");
 				break;
-//			case 14:
-//				addressBook.readDataFromJSONFile();
-//				break;
-//			case 15:
-//				obj.addAddressBook();
-//				count = 0;
-				//break;
+			case 14:
+				
+				addressBook.readDataFromJSONFile();
+				break;
+			case 15:
+				obj.addAddressBook();
+				count = 0;
+				break;
 			default:
 				System.out.println("Enter a valid choice");
 				break;

@@ -297,5 +297,36 @@ public class AddressBook {
 		}
 	}
 	
-	
+	public void addDataToJSONFile(String addressBookName, List<Contact> list2) throws IOException {
+		
+		addDataToJSONFile(addressBookName, list);
+		System.out.println("Enter name for json written file : ");
+		String fileName = sc.nextLine();
+		Path filePath = Paths.get("src\\Addressbook"+fileName+".json");
+		Gson gson = new Gson();
+		String json = gson.toJson(list);
+		FileWriter writer = new FileWriter(String.valueOf(filePath));
+		writer.write(json);
+		writer.close();
+	}
+
+	public void readDataFromJSONFile() throws IOException {
+		System.out.println("Enter address book name : ");
+		String fileName = sc.nextLine();
+		Path filePath = Paths.get("src\\Addressbook"+fileName+".json");
+		Gson gson = new Gson(); //Gson is a Java library that can be used to convert Java objects into their JSON representation
+		BufferedReader br = new BufferedReader(new FileReader(String.valueOf(filePath)));
+		Contact[] data = gson.fromJson(br, Contact[].class);
+		List<Contact> list = Arrays.asList(data);
+		for (Contact details : list) {
+			System.out.println("Firstname : " + details.firstName);
+			System.out.println("Lastname : " + details.lastName);
+			System.out.println("Address : " + details.address);
+			System.out.println("City : " + details.city);
+			System.out.println("State : " + details.state);
+			System.out.println("Zip : " + details.zip);
+			System.out.println("PhoneNumber : " + details.phoneNumber);
+			System.out.println("Email : " + details.emailId);
+		}
+	}
 }
